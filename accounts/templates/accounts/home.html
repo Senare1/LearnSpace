@@ -1,0 +1,65 @@
+{% extends 'courses/base.html' %}
+
+{% load static %}
+
+{% block title %} home page {% endblock %}
+
+{% block content %}
+
+<div class="hero-section">
+    <div class="container mt-5">
+            <style>
+                .animated-text {
+                    transition: opacity 3s ease-in-out;
+                    font-size: 32px;
+                    border: 2px solid wheat;
+                    border-radius: 10px;
+                    padding: 10px;
+                    margin: 10px;
+                    background-color: azure;
+                }
+                .hidden {
+                    opacity: 0;
+                }
+            </style>
+            <div class="row pt-5 mx-auto">
+                <div class="col md-12 welcome animated-text"></div>
+                <div class="col md-12 raison animated-text"></div>
+                <div class="col md-12 exploration animated-text"></div>
+            </div>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        const texts = {
+                            welcome: ["Bienvenue sur Lspace", "C'est une plateforme pour apprendre facilement en ligne", "Bien refléchi, pour aider les élèves", "Apprendre n'a jamais été difficile avec Lspace!"],
+                            raison: ["Pourquoi nous choisir?", "Vous aimez la fiabilité,laisser nous dire que c'est une raison", "La qualité est aussi votre premier choix", "L'accessibilité est egalement vos sources de plaisir"],
+                            exploration: ["Explorez nos services", "Lspace vous accompagne dans tous", "Le monde est un univers immense", "Alors decouvrez le monde d'apprentissage avec plateforme"]
+                        };
+            
+                        let currentIndex = 0;
+                        const changeText = () => {
+                            document.querySelector(".welcome").classList.add("hidden");
+                            document.querySelector(".raison").classList.add("hidden");
+                            document.querySelector(".exploration").classList.add("hidden");
+            
+                            setTimeout(() => {
+                                document.querySelector(".welcome").innerText = texts.welcome[currentIndex];
+                                document.querySelector(".raison").innerText = texts.raison[currentIndex];
+                                document.querySelector(".exploration").innerText = texts.exploration[currentIndex];
+            
+                                document.querySelector(".welcome").classList.remove("hidden");
+                                document.querySelector(".raison").classList.remove("hidden");
+                                document.querySelector(".exploration").classList.remove("hidden");
+                                
+                                currentIndex = (currentIndex + 1) % texts.welcome.length;
+                            }, 1000);
+                        };
+            
+                        changeText();
+                        setInterval(changeText, 4000);
+                    });
+                </script>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends 'accounts/base.html' %}
+
+{% load static %}
+
+{% block title %} Profile de l'utilisateur {% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<div class="container py-5">
+  <form method="post">
+    {% csrf_token %}
+    <fieldset class="border p-4 mt-5">
+      <legend class="w-auto p-2 text-center">Bienvenu, vos informations de profile</legend>
+
+      <div class="row mb-3">
+        <div class="col-md-2">
+          <label for="id_course_title" class="form-label">Nom</label>
+        </div>
+        <div class="col-md-10 me-2">
+          {{ form.first_name }}
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-2">
+          <label for="id_course_title" class="form-label">Prenom</label>
+        </div>
+        <div class="col-md-10">
+          {{ form.last_name }}
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-2">
+          <label for="id_content_text" class="form-label">Email</label>
+        </div>
+        <div class="col-md-10">
+          {{ form.learner_email }}
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-2">
+          <label for="id_course_matter" class="form-label">Telephone</label>
+        </div>
+        <div class="col-md-10">
+          {{ form.learner_phone }}
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-2">
+          <label for="id_course_author" class="form-label">Niveau</label>
+        </div>
+        <div class="col-md-10">
+          {{ form.learner_level }}
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-2">
+          <label for="id_course_level" class="form-label">Faculté</label>
+        </div>
+        <div class="col-md-10">
+          {{ form.learner_faculty }}
+        </div>
+      </div>
+
+      <div class="row mt-4 text-center">
+        <div class="col-12 col-md-6 mb-2 mb-md-0">
+          <button type="reset" class="btn btn-danger w-100">Annuler</button>
+        </div>
+        <div class="col-12 col-md-6">
+          <button type="submit" class="btn btn-success w-100">Mettre à jour</button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+{% endblock %}

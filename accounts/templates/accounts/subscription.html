@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choix d'abonnement</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .card {
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .selected-plan {
+            margin-top: 30px;
+        }
+        #subscribe-button {
+            cursor: not-allowed;
+        }
+        .select-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .select-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center mt-5">
+        <h1 class="text-center">Choisissez votre abonnement</h1>
+        <form id="subscription-form" method="POST">
+            {% csrf_token %}
+            <div class="row mt-4">
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-title">Standard</h2>
+                            <p class="card-text price">100 CFA/mois</p>
+                            <p class="card-text">Accès illimité aux cours</p>
+                            <input type="radio" name="plan" value="standard" id="standard" class="d-none">
+                            <button type="button" class="select-button" onclick="selectPlan('standard')">Sélectionner</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-title">Premium</h2>
+                            <p class="card-text price">150 CFA/mois</p>
+                            <p class="card-text">Accès illimité aux cours et support prioritaire</p>
+                            <input type="radio" name="plan" value="premium" id="premium" class="d-none">
+                            <button type="button" class="select-button" onclick="selectPlan('premium')">Sélectionner</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="selected-plan">
+                <h2>Votre sélection :</h2>
+                <p id="selected-plan-name">Aucun</p>
+                <button type="submit" id="subscribe-button" class="btn btn-success" disabled>S'abonner</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function selectPlan(planId) {
+            document.getElementById(planId).checked = true;
+            const planName = planId.charAt(0).toUpperCase() + planId.slice(1);
+            document.getElementById('selected-plan-name').innerText = planName;
+            document.getElementById('subscribe-button').disabled = false;
+            document.getElementById('subscribe-button').style.cursor = 'pointer';
+        }
+
+        document.getElementById('subscription-form').addEventListener('submit', function (event) {
+            const selectedPlan = document.querySelector('input[name="plan"]:checked').value;
+            alert(`Vous avez choisi le plan ${selectedPlan}. Merci de votre abonnement !`);
+        });
+    </script>
+</body>
+</html>

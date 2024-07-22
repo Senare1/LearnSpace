@@ -1,0 +1,66 @@
+{% extends 'teachers/base.html' %}
+
+{% load static %}
+
+{% block title %} Détail de {{ course.course_title }} {% endblock %}
+
+{% block content %}
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> -->
+
+<div class="container mt-5">
+    <div class="row mb-4">
+        <div class="col-12 text-center mt-4">
+            <h2 class="text-center py-3">Les challenges disponibles dans {{ teacher.teacher_matter.matter_name | truncatewords:4}}</h2>
+        </div>
+    </div>
+    {% for challenge in chal %}
+    {% if challenge.challenge_image %}
+    <div class="row mb-3 p-3 border rounded shadow-sm align-items-center">
+        <div class="col-8">
+            <h3>{{ challenge.challenge_name }}</h3>
+        </div>
+        <div class="col-2 text-center">
+            <a href="{{challenge.challenge_image.url}}" class="link text-decoration-none">
+                <i class="fas fa-book-reader"></i> Lire
+            </a>
+        </div>
+        <div class="col-2 text-center">
+            <a href="{% url 'teacher_delete_challenge' challenge_id=challenge.id %}" class="link text-decoration-none text-danger">
+                <i class="fas fa-trash-alt"></i> Retirer
+            </a>
+        </div>
+    </div>
+    {% endif %}
+    {% if challenge.challenge_document %}
+    <div class="row mb-3 p-3 border rounded shadow-sm align-items-center">
+      <div class="col-8">
+          <h3>{{ challenge.challenge_name }}</h3>
+      </div>
+      <div class="col-2 text-center">
+          <a href="{{challenge.challenge_document.url}}" class="link text-decoration-none">
+              <i class="fas fa-book-reader"></i> Lire
+          </a>
+      </div>
+      <div class="col-2 text-center">
+          <a href="{% url 'teacher_delete_challenge' challenge_id=challenge.id %}" class="link text-decoration-none text-danger">
+              <i class="fas fa-trash-alt"></i> Retirer
+          </a>
+      </div>
+    </div>
+  {% endif %}
+    {% endfor %}
+
+    <div class="row mb-3 p-3 border rounded shadow-sm">
+        <div class="col-12 text-center">
+            {% if not chal %}<p class="text-center">Oups, aucun challenge chargé pour le moment</p>{% endif %}
+            <a href="{% url 'teacher_add_challenge' %}" class="link text-decoration-none">
+                <i class="fas fa-plus"></i> Ajouter
+            </a>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+{% endblock %}

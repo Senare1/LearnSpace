@@ -1,0 +1,59 @@
+{% extends 'teachers/base.html' %}
+{% load static %}
+
+{% block title %} home page {% endblock %}
+
+{% block content %}
+
+
+<div class="hero-section text-white">
+    <div class="container pt-2">
+      <h2 class="m-2 text-center py-5">Page d'administration enseignant</h2>
+        <div class="row py-3">
+            <div class="col py-2">
+                <div class="card" style="width: 15rem;height: 17rem;">
+                    <div class="bg-image hover-overlay" data-mdb-ripple-init data-mdb-ripple-color="light">
+                      <a href="{% url 'matiere' %}" class="card-link"><img src="{% static 'teachers/image/matiere.jpeg' %}" class="img-fluid"/></a>
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Matière</h5>
+                      <div class="card-footer text-center">
+                      <a href="{% url 'matiere' %}" class="btn btn-primary" data-mdb-ripple-init>Entrer</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col py-2">
+                <div class="card" style="width: 15rem;height: 17rem;">
+                    <div class="bg-image hover-overlay" data-mdb-ripple-init data-mdb-ripple-color="light">
+                      <a href="{% url 'evaluation' %}" class="card-link"><img src="{% static 'teachers/image/evaluation.jpeg' %}" class="img-fluid"/></a>                    
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Evaluation</h5>
+                        <div class="card-footer text-center">
+                      <a href="{% url 'evaluation' %}" class="btn btn-primary" data-mdb-ripple-init>Entrer</a></div>
+                    </div>
+                  </div>
+            </div>
+
+            <div class="col py-2">
+                <div class="card" style="width: 15rem;height: 17rem;">
+                    <div class="bg-image hover-overlay" data-mdb-ripple-init data-mdb-ripple-color="light">
+                      <a href="{% url 'challenge' %}" class="card-link"><img src="{% static 'teachers/image/challenge.jpeg' %}" class="img-fluid"/></a>
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Défis</h5>
+ 
+                    <div class="card-footer text-center"><a href="{% url 'challenge' %}" class="btn btn-primary" data-mdb-ripple-init>Entrer</a></div>
+                    </div>
+                  </div>
+            </div>
+            
+            
+        </div>
+    </div>
+  </div>
+{% endblock %}
+</body>
+</html>
+

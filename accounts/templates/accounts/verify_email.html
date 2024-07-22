@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifier code confirmation</title>
+    <link rel="stylesheet" href="{% static 'bootstrap-5/css/boxicons.min.css' %}">
+    <link href="{% static 'bootstrap-5/css/all.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .wrapper {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+        .title {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+        .row {
+            margin-bottom: 15px;
+        }
+        .col {
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .col i {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+        }
+        .col input {
+            border: none;
+            outline: none;
+            font-size: 14px;
+            padding-left: 30px;
+            width: 100%;
+        }
+        .button input {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .button input:hover {
+            background-color: #0056b3;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="title mt-2"><span>Verify your OTP</span></div>
+        <form method="post">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col">
+                    <i class="bx bx-mail-send"></i>
+                    <input type="number" name="code" placeholder="Enter OTP">
+                </div>
+            </div>
+            {% if verify_form.errors %}
+                <div class="error">{{ verify_form.errors.code }}</div>
+            {% endif %}
+            <div class="row button">
+                <input type="submit" value="Verify">
+            </div>
+        </form>
+        <form method="post" action="{% url 'regenerate_code' %}">
+            {% csrf_token %}
+            <div class="row button mt-2">
+                <input type="submit" value="Régénérer le code">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

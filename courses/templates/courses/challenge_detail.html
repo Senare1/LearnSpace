@@ -1,0 +1,33 @@
+{% extends 'courses/base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="container py-5">
+        <div class="row py-5">
+            <h3 class="text-center">Bienvenu,au monde des challenges</h3>
+            <div class="row">
+                {% for challenge in challenges %}
+                    <div class="card">
+                        <a><img src="{{ challenge.challenge_image.url }}" alt="" class="card-img-top"></a>
+                        <div class="car-body">
+                            <p class="card-title">{{ challenge.challenge_name }}</p>
+                        </div>
+                        <div class="card-footer"><a href="{{ challenge.challenge_image.url }}" class="card-link">Me defier</a></div>
+                    </div>
+                    <div class="card">
+                        <a><img src="{{ challenge.challenge_document.url }}" alt="" class="card-img-top"></a>
+                        <div class="car-body">
+                            <p class="card-title">{{ challenge.challenge_name }}</p>
+                        </div>
+                        <div class="card-footer"><a href="{{ challenge.challenge_document.url }}" class="card-link">Me defier</a></div>
+                    </div>
+                {% empty %}
+                <div class="row mx-auto border rounded" style="background-color: azure;"><p class="text-center py-2">Sorry,pas de challenges disponibles</p></div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

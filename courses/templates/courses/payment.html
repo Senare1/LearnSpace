@@ -1,0 +1,24 @@
+
+{% load static %}
+
+{% block title %} Abonnement de l'utilisateur {% endblock %}
+
+{% block content %}
+
+<div class="container mt-5 py-5">
+    <h3 class="text-center">Bienvenu,faire vos choix d'abonnement</h3>
+    <form method="POST">
+        {% crsf_token %}
+        <div class="row mx-auto p-2">
+            <div class="col">
+                <label for="id_choice">Standard (100) Premium (150)</label>
+            </div>
+            <div class="col">
+                {{ form.choix }}
+            </div>
+        </div>
+        <div class="row me-2"><button type="submit">Valider</button></div>
+    </form>
+</div>
+
+{% endblock %}

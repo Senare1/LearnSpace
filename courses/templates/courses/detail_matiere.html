@@ -1,0 +1,42 @@
+{% extends 'courses/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container py-5">
+    <div class="row py-5">
+        <div class="col-10 text-center">
+            <h1>Les meilleurs cours sur {{ matiere.matter_name }}</h1> 
+        </div>
+        {% if evaluer %}
+        <div class="col-2">
+            <a href="{% url 'rate_me' evaluation_name=evaluer.evaluation_name %}" class="btn btn-primary border rounded">Exercez-vous</a>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="row py-5">
+        {% if courses %}
+        <div class="row py-2 border">
+            {% for course in courses %}
+            <div class="col py-2">
+                <div class="card mx-3" style="width: 200px;height: 250px">    
+                    <a href="{% url 'mon_cours' matter_name=matiere.matter_name slug=course.slug %}">
+                        <img src="{% static 'accounts/image/cours.jpeg' %}" style="width: 175px;height: 150px" alt="Image du cours" class="img-card-top">
+                    </a>
+                    <div class="card-footer">
+                        <p class="card-title">{{ course.course_title }}</p>
+                        <a href="{% url 'mon_cours' matter_name=matiere.matter_name slug=course.slug %}" class="card-link-center">Voir</a>
+                    </div>
+                </div>
+            </div>
+            
+            {% endfor%}
+        </div>
+        {% else %}
+            <div class="row mx-auto border rounded" style="background-color: azure;"><p class="text-center py-2">Sorry,pas de cours disponibles</p></div>
+        {% endif %}
+
+    </div>
+</div>
+{% endblock %}

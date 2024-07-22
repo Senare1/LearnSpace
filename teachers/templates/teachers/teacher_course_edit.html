@@ -1,0 +1,103 @@
+{% extends 'teachers/base.html' %}
+
+{% load static %}
+
+{% block title %} Édition de cours {% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<div class="container py-5">
+  <form method="post">
+    {% csrf_token %}
+    <fieldset class="border p-4 mt-5">
+      <legend class="w-auto p-2 text-center">Édition du cours</legend>
+
+      <div class="row mb-3">
+        <div class="col-md-2">
+          <label for="id_course_title" class="form-label">Un code pour ce cours</label>
+        </div>
+        <div class="col-md-10 me-2">
+          {{ form.course_code }}
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-2">
+          <label for="id_course_title" class="form-label">Titre du cours</label>
+        </div>
+        <div class="col-md-10">
+          {{ form.course_title }}
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-2">
+          <label for="id_content_text" class="form-label">Contenu du cours</label>
+        </div>
+        <div class="col-md-10">
+          {{ form.content_text }}
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-2">
+          <label for="id_course_matter" class="form-label">Matière concernée</label>
+        </div>
+        <div class="col-md-10">
+          {{ form.course_matter }}
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-2">
+          <label for="id_course_author" class="form-label">Auteur du cours</label>
+        </div>
+        <div class="col-md-10">
+          {{ form.course_author }}
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-2">
+          <label for="id_course_level" class="form-label">Niveau du cours</label>
+        </div>
+        <div class="col-md-10">
+          {{ form.course_level }}
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-2">
+          <label for="id_is_premium" class="form-label">Premium</label>
+        </div>
+        <div class="col-md-10">
+          {{ form.is_premium }}
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-2">
+          <label for="id_difficulty" class="form-label">Difficulté</label>
+        </div>
+        <div class="col-md-10">
+          {{ form.difficulty }}
+        </div>
+      </div>
+
+      <div class="row mt-4 text-center">
+        <div class="col-12 col-md-6 mb-2 mb-md-0">
+          <button type="reset" class="btn btn-danger w-100">Annuler</button>
+        </div>
+        <div class="col-12 col-md-6">
+          <button type="submit" class="btn btn-success w-100">Enregistrer</button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+{% endblock %}

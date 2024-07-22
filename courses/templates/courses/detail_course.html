@@ -1,0 +1,85 @@
+{% extends 'courses/base.html' %}
+
+{% load static %}
+                    
+{% block content %}
+                    
+    <div class="container py-5">
+    <style>
+    .row .card {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    }
+
+    .card {
+    transition: transform 0.5s ease; /* Animation de transition */
+    }
+
+    @keyframes moveUp {
+    from {
+                    transform: translateY(0);
+                }
+                to {
+                    transform: translateY(-20px); /* Ajustez la valeur pour le déplacement désiré */
+                }
+            }
+
+            @keyframes moveDown {
+                from {
+                    transform: translateY(0);
+                }
+                to {
+                    transform: translateY(20px); /* Ajustez la valeur pour le déplacement désiré */
+                }
+            }
+    </style>
+
+    <div class="row py-5">
+            <div class="col-10 text-center">
+                <h1>Les meilleurs chapitres sur {{ course.course_title | truncatewords:3}}</h1> 
+            </div>
+            {% if evaluer %}
+            <div class="col-2">
+                <a href="{% url 'rate_me' %}" class="btn btn-primary border rounded">Exercez-vous</a>
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="row py-5">
+            {% if chapters %}
+            <div class="row py-2 border">
+                {% for chapter in chapters %}
+                <div class="col py-2">
+                    <div class="card mx-3" style="width: 200px;height: 250px">    
+                        <a href="{% url 'mon_cours' matter_name=matiere.matter_name slug=course.slug chapter_id=chapter.id %}">
+                            <img src="{% static 'accounts/image/cours.jpeg' %}" style="width: 175px;height: 150px" alt="Image du cours" class="img-card-top">
+                        </a>
+                        <div class="card-footer">
+                            <p class="card-title">{{ chapter.chapter_title }}</p>
+                            <a href="{% url 'mon_cours' matter_name=matiere.matter_name slug=course.slug chapter_id=chapter.id %}" class="card-link-center">Voir</a>
+                        </div>
+                    </div>
+                </div>
+                
+                {% endfor%}
+            </div>
+            {% else %}
+                <div class="row mx-auto border rounded" style="background-color: azure;"><p class="text-center py-2">Sorry,pas de cours disponibles</p></div>
+            {% endif %}
+
+        </div>
+    </div>
+    {% endblock %}
+    "card-body">
+        <p class="card-title">{{ chapter.chapter_title }}</p>
+        <a href="{% url 'detail_chapter' matter_name=matiere.matter_name slug=course.slug chapter_title=chapter.chapter_title %}" class="card-link">Lire</a>
+    </div>
+    </div>
+    {% empty %}
+    <div class="row mx-auto border rounded" style="background-color: azure;"><p class="text-center py-2">Sorry,pas de chapitres disponibles</p></div>    {% endfor%}
+    </div>
+    </div>
+
+{% endblock %}

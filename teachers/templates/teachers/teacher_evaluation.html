@@ -1,0 +1,43 @@
+{% extends 'teachers/base.html' %}
+
+{% load static %}
+
+{% block title %} Page d'evaluation {% endblock %}
+
+{% block content %}
+
+
+<div class="container mt-5">
+    <div class="row mb-4">
+        <div class="col-12 text-center mt-4">
+            <h2 class="text-center py-3">Les evaluations disponibles  en {{teacher.teacher_matter.matter_name}}</h2>
+        </div>
+    </div>
+    {% for evaluation in evalu %}
+    <div class="row mb-3 p-3 border rounded shadow-sm align-items-center">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-8 text-center mb-2 mb-sm-0">
+            <h3>{{ evaluation.evaluation_name }}</h3>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2 text-center mb-2 mb-sm-0 text-center">
+            <a href="{% url 'teacher_detail_evaluation' evaluation_id=evaluation.id %}" class="link text-decoration-none">
+                <i class="fas fa-book-edit"></i> Voir
+            </a>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2 text-center mb-2 mb-sm-0 text-center">
+            <a href="{% url 'teacher_delete_evaluation' evaluation_id=evaluation.id %}" class="link text-decoration-none text-danger">
+                <i class="fas fa-trash-alt"></i> Retirer
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="row mb-3 p-3 border rounded shadow-sm">
+        <div class="col-12 text-center">
+            {% if not evalu %}<p class="text-center">Oups, aucune evaluation chargée pour le moment</p>{% endif %}
+            <a href="{% url 'teacher_add_evaluation' %}" class="link text-decoration-none">
+                <i class="fas fa-plus"></i> Ajouter
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends 'teachers/base.html' %}
+
+{% load static %}
+
+{% block title %} Profile {% endblock %}
+
+{% block content %}
+
+
+<div class="container mt-5">
+    
+    <form method="POST">
+        {% csrf_token %}
+        <div class="row mb-4">
+            <div class="col-12 text-center mt-4">
+                <h2 class="text-center py-3">Welcome {{ form.first_name }}</h2>
+            </div>
+        </div>
+    
+        <div class="row mb-3 p-3 border rounded shadow-sm align-items-center">
+            <div class="col">
+                <label for="id_name">Nom : </label>
+            </div>
+            <div class="col">
+                {{ form.first_name }}
+            </div>
+        </div>
+    
+        <div class="row mb-3 p-3 border rounded shadow-sm align-items-center">
+            <div class="col">
+                <label for="id_name">Prenom : </label>
+            </div>
+            <div class="col">
+                {{ form.last_name }}
+            </div>
+        </div>
+    
+        <div class="row mb-3 p-3 border rounded shadow-sm align-items-center">
+            <div class="col">
+                <label for="id_name">Email : </label>
+            </div>
+            <div class="col">
+                {{ form.learner_email }}
+            </div>
+        </div>
+        <div class="row mb-3 p-3 border rounded shadow-sm align-items-center">
+            <div class="col">
+                <label for="id_name">Telephone : </label>
+            </div>
+            <div class="col">
+                {{ form.learner_phone }}
+            </div>
+        </div>
+        <div class="row mb-3 p-3 border rounded shadow-sm align-items-center">
+            <div class="col">
+                <label for="id_name">Classe scolaire : </label>
+            </div>
+            <div class="col">
+                {{ form.learner_level }}
+            </div>
+        </div>
+    
+        {% for message in messages %}
+            <div class="row-text-center">
+                {% message.error %}
+            </div>
+        {% endfor %}
+        <div class="row my-4 text-center">
+            <div class="col-12 col-md-6 mb-2 mb-md-0">
+              <button type="reset" class="btn btn-danger w-75">Annuler</button>
+            </div>
+            <div class="col-12 col-md-6">
+              <button type="submit" class="btn btn-success w-75">Enregistrer</button>
+            </div>
+          </div>
+    </form>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+{% endblock %}

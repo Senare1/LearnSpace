@@ -1,0 +1,141 @@
+.navbar{
+    background-color: #fff;
+    height: 80px;
+    font-size: 16px;
+    /*margin: 20px;
+    border-radius: 40px;*/
+    padding: 0.5rem;
+}
+
+
+.navbar-brand{
+    color: #009970;
+    font-weight: 500;
+    font-size: 24px;
+    transition: 0.3s color;
+}
+.login-button{
+    background-color: #009970;
+    font-size: 14px;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s background-color;
+}
+
+.logout-button:hover{
+    background-color: #990000;
+}
+
+.logout-button{
+    background-color: #990000;
+    font-size: 14px;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s background-color;
+}
+
+.login-button:hover{
+    background-color: #00b383;
+}
+
+.navbar-toggler{
+    border: none;
+    font-size: 1.25rem;
+}
+.navbar-toggler:focus,.btn-close:focus{
+    box-shadow: none;
+    outline: none;
+}
+
+.nav-link{
+    color: #666777;
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-link:hover,.nav-link.active{
+    color: #000;
+}
+@media(min-width:991px){
+    .nav-link::before{
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background-color: #009970;
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+    }
+
+    .nav-link:hover::before,.nav-link.nav-link.active::before{
+        width: 100%;
+        visibility: visible;
+    }
+}
+
+.hero-section{
+    background : url(../image/school.jpeg) no-repeat center;
+    background-size: cover;
+    /* width: 100%;
+    height: 100vh; 
+    padding-top: 50px;*/
+}
+
+/* Contrôle de la barre de recherche*/
+.search-form {
+    border-radius: .10rem;
+    padding: 0.3rem;
+}
+.search-input {
+    border: none;
+    box-shadow: none;
+}
+.search-input:focus {
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
+.search-button {
+    border: none;
+    box-shadow: none;
+}
+.search-button:focus {
+    outline: none;
+}
+
+/* End footer*/
+
+/* Start footer*/
+
+.footer {
+    background-color: #f8f9fa;
+    padding: 2rem 0;
+    border-top: 1px solid #e9ecef;
+}
+.footer a {
+    color: #6c757d;
+    text-decoration: none;
+}
+.footer a:hover {
+    text-decoration: underline;
+}
+.social-icons a {
+    margin: 0 0.5rem;
+    color: #6c757d;
+}
+.social-icons a:hover {
+    color: #495057;
+}
+
+
+/* End footer*/
+
+/* Css for home_teacher */
+

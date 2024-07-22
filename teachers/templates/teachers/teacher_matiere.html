@@ -1,0 +1,48 @@
+{% extends 'teachers/base.html' %}
+
+{% load static %}
+
+{% block title %} Détail de {{ course.course_title }} {% endblock %}
+
+{% block content %}
+
+
+<div class="container mt-5">
+    <div class="row mb-4">
+        <div class="col-12 text-center mt-4">
+            <h2 class="text-center py-3">Les cours disponibles dans {{ teacher.teacher_matter.matter_name }}</h2>
+        </div>
+    </div>
+    {% for course in courses %}
+    <div class="row mb-3 p-3 border rounded shadow-sm align-items-center">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-6 text-center mb-2 mb-sm-0">
+            <h3>{{ course.course_title }}</h3>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2 text-center mb-2 mb-sm-0text-center">
+            <a href="{% url 'cours' course.slug %}" class="link text-decoration-none">
+                <i class="fas fa-book-reader"></i> Lire
+            </a>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2 text-center mb-2 mb-sm-0text-center">
+            <a href="{% url 'editer' slug=course.slug %}" class="link text-decoration-none">
+                <i class="fas fa-edit"></i> Editer
+            </a>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2 text-center mb-2 mb-sm-0 text-center">
+            <a href="{% url 'retirer' slug=course.slug %}" class="link text-decoration-none text-danger">
+                <i class="fas fa-trash-alt"></i> Retirer
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="row mb-3 p-3 border rounded shadow-sm">
+        <div class="col-12 text-center">
+            {% if not courses %}<p class="text-center">Oups, aucun cours chargé pour le moment</p>{% endif %}
+            <a href="{% url 'ajouter' %}" class="link text-decoration-none">
+                <i class="fas fa-plus"></i> Ajouter
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

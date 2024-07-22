@@ -1,0 +1,81 @@
+{% extends 'teachers/base.html' %}
+
+{% load static %}
+
+{% block title %} Chapter's page {% endblock %}
+
+{% block content %}
+
+
+<div class="container mt-5">
+  <form method="POST" enctype="multipart/form-data" class="py-5">
+    {% csrf_token %}
+    <fieldset class="border p-4">
+      <legend class="w-auto p-2 text-center">Editer mon chapitre</legend>
+      <div class="row align-items-center mb-3">
+        <div class="col-md-2">
+          <label for="textInput" class="form-label pt-3 mt-3">Titre du chapitre</label>
+        </div>
+        <div class="col-md-10">
+          {{chapter_form.chapter_title}}
+        </div>
+      </div>
+
+      <div class="row align-items-center mb-3">
+        <div class="col-md-2">
+          <label for="textArea" class="form-label">Éditer le chapitre</label>
+        </div>
+        <div class="col-md-10">
+          {{chapter_form.content_text}}
+        </div>
+      </div>
+      
+      <div class="row align-items-center mb-3">
+        <div class="col-md-2">
+          <label for="imageInput" class="form-label">En image</label>
+        </div>
+        <div class="col-md-10">
+          {{media_form.image_media}}
+        </div>
+      </div>
+      
+      <div class="row align-items-center mb-3">
+        <div class="col-md-2">
+          <label for="videoInput" class="form-label">En vidéo</label>
+        </div>
+        <div class="col-md-10">
+          {{media_form.video_media}}
+        </div>
+      </div>
+      
+      <div class="row align-items-center mb-3">
+        <div class="col-md-2">
+          <label for="audioInput" class="form-label">En audio</label>
+        </div>
+        <div class="col-md-10">
+          {{media_form.audio_media}}
+        </div>
+      </div>
+      
+      <div class="row align-items-center mb-3">
+        <div class="col-md-2">
+          <label for="documentInput" class="form-label">En document</label>
+        </div>
+        <div class="col-md-10">
+          {{media_form.document_media}}
+        </div>
+      </div>
+      
+      <div class="row mt-4">
+        <div class="col-12 col-md-4 mb-2 mb-md-0">
+          <button type="reset" class="btn btn-danger w-100">Annuler</button>
+        </div>
+        <div class="col-12 col-md-4">
+          <button type="submit" class="btn btn-success w-100">Enregistrer</button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>
+
+{% endblock %}

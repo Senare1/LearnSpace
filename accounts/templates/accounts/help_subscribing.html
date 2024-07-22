@@ -1,0 +1,42 @@
+{% load static %}
+
+{% block title %} Abonnement au site {% endblock %}
+
+{% block content %}
+    <style>
+        /* Ajouter des styles personnalisés ici si nécessaire */
+        body {
+            padding-top: 20px;
+        }
+    </style>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h1 class="text-center mb-4">Aide - Comment effectuer un achat</h1>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Comment acheter un produit sur notre plateforme ?</h5>
+                        <p class="card-text">Suivez ces étapes simples pour effectuer un achat sur notre plateforme :</p>
+                        <ol class="mb-4">
+                            <li>Connectez-vous à votre compte utilisateur.</li>
+                            <li>Parcourez notre catalogue de produits et choisissez celui qui vous intéresse.</li>
+                            <li>Cliquez sur le bouton "Ajouter au panier" pour mettre le produit dans votre panier.</li>
+                            <li>Accédez à votre panier et vérifiez les détails de votre commande.</li>
+                            <li>Procédez au paiement en utilisant l'une de nos options de paiement sécurisé.</li>
+                            <li>Une fois le paiement effectué, vous recevrez une confirmation de commande par e-mail.</li>
+                            <li>Attendez la livraison de votre produit à l'adresse spécifiée.</li>
+                        </ol>
+                        <p class="card-text">Pour toute question supplémentaire sur le processus d'achat, veuillez nous contacter :</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-envelope"></i> <a href="mailto:support@monapplication.com">support@monapplication.com</a></li>
+                            <li><i class="fas fa-envelope"></i> <a href="mailto:devseniors2024@gmail.com">devseniors2024@gmail.com</a></li>
+                            <li><i class="fas fa-phone"></i> +226 64 99 34 41 / 226 79 00 44 21</li>
+                        </ul>
+                    </div>
+                </div>
+                 <a href="{% url 'help' %}" class="btn btn-primary mt-4 fade-in">Retour</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

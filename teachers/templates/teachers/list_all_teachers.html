@@ -1,0 +1,41 @@
+{% extends 'teachers/base.html' %}
+
+{% load static %}
+
+{% block title %} All teachers {% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row mb-4">
+        <div class="col-12 text-center mt-4">
+            <h2 class="text-center py-3">Vos enseignants enregistrés</h2>
+        </div>
+    </div>
+    {% for teacher in teachers %}
+        <div class="row mb-3 p-3 border rounded shadow-sm align-items-center">
+
+            <div class="col-2"><a href="{% url 'teacher_detail_teacher' teacher_id =teacher.id %}"><img src="{% static 'teachers/images/teacher.jpeg' %}" alt="{{ teacher.first_name }}"></a></div>
+            <div class="col-8">{{ teacher.teacher_register }}</div>
+
+            <div class="col-2 text-center">
+                <a href="{% url 'teacher_delete_teacher' teacher_id=teacher.id %}" class="link text-decoration-none text-danger">
+                    <i class="fas fa-trash-alt"></i> Retirer
+                </a>
+            </div>
+        </div>
+        {% empty %}
+        <div class="row mb-3 p-3 border rounded shadow-sm">
+            <p class="text-center">Oups, aucun enseignant enregistrer pour le moment</p>
+            <div class="col-12 text-center">
+                <a href="{% url 'add_teacher' %}" class="link text-decoration-none">
+                    <i class="fas fa-plus"></i> Ajouter
+                </a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+{% endblock %}

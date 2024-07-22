@@ -1,0 +1,101 @@
+{% extends 'teachers/base.html' %}
+
+{% load static %}
+{% load file_filter %}
+
+{% block title %}Détail de Matières{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row pt-5 mb-4">
+        <div class="col-12 text-center">
+            <h2>Le contenu de {{ chapter.chapter_title }}</h2>
+        </div>
+    </div>
+    {% for media in medias %}
+        {% if media.image_media %}
+        <div class="row mb-3 p-3 border rounded shadow-sm align-items-center">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-8 text-center mb-2 mb-sm-0">
+                <h3>{{ media.image_media.name | filename }}</h3>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 text-center mb-2 mb-sm-0 text-center">
+                <a href="{{ media.image_media.url }}" class="link text-decoration-none">
+                    <i class="fas fa-image icon"></i> Voir
+                </a>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 text-center mb-2 mb-sm-0 text-center">
+                <a href="{% url 'retirer_media' slug=course.slug chapter_id=chapter.id media_id=media.id %}" class="link text-decoration-none text-danger">
+                    <i class="fas fa-trash-alt"></i> Supprimer
+                </a>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if media.video_media %}
+        <div class="row mb-3 p-3 border rounded shadow-sm align-items-center">
+            <div class="col-8">
+                <h3>{{ media.video_media.name | truncatewords:3 }}</h3>
+            </div>
+            <div class="col-2 text-center">
+                <a href="{{ media.video_media.url }}" class="link text-decoration-none">
+                    <i class="fas fa-video icon"></i> Voir
+                </a>
+            </div>
+            <div class="col-2 text-center">
+                <a href="{% url 'retirer_media' slug=course.slug chapter_id=chapter.id media_id=media.id %}" class="link text-decoration-none text-danger">
+                    <i class="fas fa-trash-alt"></i> Supprimer
+                </a>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if media.audio_media %}
+        <div class="row mb-3 p-3 border rounded shadow-sm align-items-center">
+            <div class="col-8">
+                <h3>{{ media.audio_media.name | filename }}</h3>
+            </div>
+            <div class="col-2 text-center">
+                <a href="{{ media.audio_media.url }}" class="link text-decoration-none">
+                    <i class="fas fa-volume-up icon"></i> Voir
+                </a>
+            </div>
+            <div class="col-2 text-center">
+                <a href="{% url 'retirer_media' slug=course.slug chapter_id=chapter.id media_id=media.id %}" class="link text-decoration-none text-danger">
+                    <i class="fas fa-trash-alt"></i> Supprimer
+                </a>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if media.document_media %}
+        <div class="row mb-3 p-3 border rounded shadow-sm align-items-center">
+            <div class="col-8">
+                <h3>{{ media.document_media.name | filename }}</h3>
+            </div>
+            <div class="col-2 text-center">
+                <a href="{{ media.document_media.url }}" class="link text-decoration-none">
+                    <i class="fas fa-file icon"></i> Voir
+                </a>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 text-center mb-2 mb-sm-0 text-center">
+                <a href="{% url 'retirer_media' slug=course.slug chapter_id=chapter.id media_id=media.id %}" class="link text-decoration-none text-danger">
+                    <i class="fas fa-trash-alt"></i> Supprimer
+                </a>
+            </div>
+        </div>
+        {% endif %}
+    {% endfor %}
+
+    <div class="row mb-3 p-3 border rounded shadow-sm">
+        <div class="col-12 text-center">
+            {% if not medias %}
+            <p class="text-center">Oups, aucun media chargé pour le moment</p>
+            {% endif %}
+            <a href="{% url 'teacher_add_media_chapter' slug=course.slug chapter_id=chapter.id %}" class="link text-decoration-none">
+                <i class="fas fa-plus"></i> Ajouter
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

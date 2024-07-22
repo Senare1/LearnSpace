@@ -1,0 +1,91 @@
+<!-- choose_subscription.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Page</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container py-5">
+        <h1 class="text-center mb-4">Choose Your Subscription Plan</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="row">
+
+                <!-- Free Plan -->
+                <div class="col-lg-4">
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-normal text-center">Free</h4>
+                        </div>
+                        <div class="card-body text-center">
+                            <h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>1 user included</li>
+                                <li>5 GB of storage</li>
+                                <li>Email support</li>
+                                <li>Help center access</li>
+                            </ul>
+                            <input type="radio" id="free" name="plan" value="free" class="btn-check" autocomplete="off">
+                            <label class="btn btn-lg btn-block btn-outline-primary" for="free">Sign up for free</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Standard Plan -->
+                <div class="col-lg-4">
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-normal text-center">Standard</h4>
+                        </div>
+                        <div class="card-body text-center">
+                            <h1 class="card-title pricing-card-title">$15 <small class="text-muted">/ mo</small></h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>5 users included</li>
+                                <li>50 GB of storage</li>
+                                <li>Priority email support</li>
+                                <li>Help center access</li>
+                            </ul>
+                            <input type="radio" id="standard" name="plan" value="standard" class="btn-check" autocomplete="off">
+                            <label class="btn btn-lg btn-block btn-primary" for="standard">Get started</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="col-lg-4">
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-normal text-center">Premium</h4>
+                        </div>
+                        <div class="card-body text-center">
+                            <h1 class="card-title pricing-card-title">$29 <small class="text-muted">/ mo</small></h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>Unlimited users</li>
+                                <li>150 GB of storage</li>
+                                <li>Phone and email support</li>
+                                <li>Help center access</li>
+                            </ul>
+                            <input type="radio" id="premium" name="plan" value="premium" class="btn-check" autocomplete="off">
+                            <label class="btn btn-lg btn-block btn-primary" for="premium">Contact us</label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

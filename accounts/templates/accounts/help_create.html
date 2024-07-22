@@ -1,0 +1,42 @@
+{% load static %}
+{% block title %} Aide sur creation de page {% endblock %}
+{% block content }
+        <style>
+            /* Ajouter des styles personnalisés ici si nécessaire */
+            body {
+                padding-top: 20px;
+        }
+        </style>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
+
+    <div class="container">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <h1 class="text-center mb-4">Aide - Comment créer un nouveau compte utilisateur</h1>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Comment créer un nouveau compte utilisateur sur notre plateforme ?</h5>
+                            <p class="card-text">Suivez ces étapes simples pour créer un nouveau compte utilisateur :</p>
+                            <ol class="mb-4">
+                                <li>Accédez à la page d'inscription en cliquant sur le lien "S'inscrire" ou "Créer un compte".</li>
+                                <li>Renseignez vos informations personnelles telles que votre nom, votre adresse e-mail et un mot de passe sécurisé.</li>
+                                <li>Choisissez votre type de compte (par exemple, utilisateur standard ou enseignant).</li>
+                                <li>Acceptez les conditions générales d'utilisation et cliquez sur "S'inscrire" ou "Créer un compte".</li>
+                                <li>Vous recevrez un e-mail de confirmation avec un lien pour activer votre compte.</li>
+                                <li>Cliquez sur le lien d'activation dans l'e-mail pour activer votre compte et commencez à utiliser notre plateforme.</li>
+                            </ol>
+                            <p class="card-text">Si vous rencontrez des difficultés pour créer un compte, veuillez nous contacter :</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-envelope"></i> <a href="mailto:support@monapplication.com">support@monapplication.com</a></li>
+                                <i class="fas fa-envelope"></i> <a href="mailto:devseniors2024@gmail.com">devseniors2024@gmail.com</a></li>
+                                <li><i class="fas fa-phone"></i> +226 64 99 34 41 / 226 79 00 44 21</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <a href="{% url 'help' %}" class="btn btn-primary mt-4 fade-in">Retour</a>
+                </div>
+            </div>
+    </div>
+{% endblock %}

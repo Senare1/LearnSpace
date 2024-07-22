@@ -1,0 +1,50 @@
+{% extends 'teachers/base.html' %}
+
+{% load static %}
+
+{% block title %}Evaluation page{% endblock %}
+
+{% block content %}
+<div class="container py-5 mt-5">
+    <form method="POST">
+        {% csrf_token %}
+    <fieldset>
+        <legend class="text-center">Enregistrement d'une évaluation sur {{ teacher.teacher_matter.matter_name }}</legend>
+            <div class="row mx-auto">
+                <div class="col-2">
+                    <label for="id_question">Nom de l'evaluation</label>
+                </div>
+                <div class="col">
+                    {{ form.evaluation_name }}
+                </div>
+            </div>
+            <div class="container py-3">
+                <div class="row">
+                    <div class="col-2">
+                        <label for="id_question">Question ==></label>
+                    </div>
+                    <div class="col">
+                        {{ form.question }}
+                    </div>
+                </div>
+                <div class="row p-2">
+                    <div class="col-2">
+                        <label for="id_response">Réponse ==></label>
+                    </div>
+                    <div class="col">
+                        {{ form.response }}
+                    </div>
+                </div>
+            </div>
+            <div class="row my-4 text-center">
+                <div class="col-12 col-md-6 mb-2 mb-md-0">
+                    <button type="reset" class="btn btn-danger w-75">Annuler</button>
+                </div>
+                <div class="col-12 col-md-6 mb-md-0">
+                    <button type="submit" class="btn btn-success w-75">Enregistrer</button>
+                </div>
+            </div>
+    </fieldset>
+</form>
+</div>
+{% endblock %}

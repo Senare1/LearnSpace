@@ -1,0 +1,74 @@
+LEARNER_FACULTY = [
+    ('SCIENCE','SCIENCE'),
+    ('LITTERATURE','LITTERATURE'),
+    ('TECHNIQUE','TECHNIQUE')
+]
+
+LEARNER_LEVEL = [
+    ('SIXIEME','SIXIEME'),
+    ('CINQUIEME','CINQUIEME'),
+    ('TROISIEME','TROISIEME'),
+    ('QUATRIEME','QUATRIEME'),
+    ('SECONDE','SECONDE'),
+    ('PREMIERE','PREMIERE'),
+    ('TERMINAL','TERMINAL'),
+]
+
+choix = [
+    ('complet','complet'),
+    ('pending','pending'),
+    ('cancel','cancel'),
+]
+
+FIRST_CYCLE = [
+    ("ANGLAIS","ANGLAIS"),
+    ("FRANCAIS","FRANCAIS"),
+    ("HISTOIRE GEOGRAPHIE","HISTOIRE GEOGRAPHIE"),
+    ("MATHEMATIQUES","MATHEMATIQUES"),
+    ("PHYSIQUE CHIMIE","PHYSIQUE CHIMIE"),
+    ("SVT","SVT"),
+]
+
+DIFFICULTY = [
+    ("DEBUTANT","DEBUTANT"),
+    ("NORMAL","NORMAL"),
+    ("AVANCE","AVANCE"),
+    ("COMPLEXE","COMPLEXE"),
+]
+
+TEACHER_CYCLE = [
+    ("PREMIER CYCLE","PREMIER CYCLE"),
+    ("SECOND CYCLE","SECOND CYCLE"),
+]
+
+TEACHER_MATTER = [
+    ("ANGLAIS","ANGLAIS"),
+    ("FRANCAIS","FRANCAIS"),
+    ("HISTOIRE GEOGRAPHIE","HISTOIRE GEOGRAPHIE"),
+    ("MATHEMATIQUES","MATHEMATIQUES"),
+    ("PHYSIQUE CHIMIE","PHYSIQUE CHIMIE"),
+    ("SVT","SVT"),
+    ("PHILOSOPHIE","PHILOSOPHIE"),
+    ("ALEMAND","ALEMAND"),
+]
+
+
+TEACHER_NAME = [
+    ("Enseignant@","Enseignant@"),
+    ("PERSONNEL@","PERSONNEL@"),
+]
+
+TEACHER_EMAIL = [
+    ("enseignant","enseignant"),
+    ("peronnel","peronnel"),
+]
+
+TEACHER_REGISTER = [
+    ("NE","NE"),
+    ("E0","E0"),
+]
+
+LEARNER_SUBCRIPTION = [
+    ("STANDARD","STANDARD"),
+    ("PREMIUM","PREMIUM")
+]

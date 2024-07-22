@@ -1,0 +1,60 @@
+{% extends 'teachers/base.html' %}
+
+{% load static %}
+
+{% block title %} Challenge page {% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+  <div class="row py-3">
+    <div class="row py-2">
+      <h2 class="text-center">Editer un challenge dans {{teacher.teacher_matter.matter_name}}</h2>
+    </div>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="row py-3">
+            <div class="row p-2">
+                <div class="col-4">
+                    <label for="id_challenge">Nom du challenge ==></label>
+                </div>
+                <div class="col">
+                    {{ form.challenge_name }}
+                </div>
+            </div>
+        </div>
+
+        <div class="row py-3">
+            <div class="row p-2">
+                <div class="col-4">
+                    <label for="id_challenge">En image ==></label>
+                </div>
+                <div class="col">
+                    {{ form.challenge_image }}
+                </div>
+            </div>
+        </div>
+
+        <div class="row py-3">
+            <div class="row p-2">
+                <div class="col-4">
+                    <label for="id_question">EN document ==></label>
+                </div>
+                <div class="col">
+                    {{ form.challenge_document }}
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4 text-center">
+            <div class="col-12 col-md-6 mb-2 mb-md-0">
+              <button type="reset" class="btn btn-danger w-100">Annuler</button>
+            </div>
+            <div class="col-12 col-md-6 mb-md-0">
+              <button type="submit" class="btn btn-success w-100">Enregistrer</button>
+            </div>
+        </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
